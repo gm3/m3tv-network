@@ -8,28 +8,58 @@
 </head>
 <body>
 
-  <header class="header">
-    <h1>M3TV Network</h1>
-  </header>
 
-  <main class="main-content">
-    <section class="broadcast-window">
-      <p>This is the Broadcast Window.</p>
-    </section>
 
-    <aside class="sidebar">
-      <h2>24-Hour Schedule</h2>
-      <div id="timeline">
-        <!-- Schedule items will be filled here -->
-      </div>
-    </aside>
-  </main>
+  <div class="content-wrapper">
+    <main class="main-content">
+        <aside class="sidebar sidebar-left">
+        <button class="toggle-button toggle-left">X</button>
+        <h2>Left Panel</h2>
+        <!-- ...content... -->
+        </aside>
+    
+        <section class="broadcast-window-wrapper">
+            <div class="broadcast-window">
+            <div class="broadcast-window-content">
+                <!--<p>This is the Broadcast Window.</p>-->
+            </div>
+            </div>
+        </section>
+    
+        <aside class="sidebar sidebar-right">
+        <button class="toggle-button toggle-right">X</button>
+        <h2>24-Hour Schedule</h2>
+        <div id="timeline">
+            <!-- Schedule items will be filled here -->
+        </div>
+        </aside>
+    </main>
 
-  <footer class="footer">
-    <p>Additional Information</p>
-  </footer>
+    <footer class="footer">
+        
+
+         
+    </footer>
+
+    <!-- HUD with badges -->
+    <div class="hud">
+        <img src="images/m3tvlogo.png" alt="MTVLogo" class="badge" data-tooltip="M3TVHomePage">
+        <img src="hud/1.png" alt="Badge 1" class="badge" data-tooltip="This is Badge 1">
+        <img src="hud/2.png" alt="Badge 2" class="badge" data-tooltip="This is Badge 2">
+        <img src="hud/3.png" alt="Badge 3" class="badge" data-tooltip="This is Badge 3">
+        <img src="hud/4.png" alt="Badge 4" class="badge" data-tooltip="This is Badge 4">
+        <img src="hud/5.png" alt="Badge 5" class="badge" data-tooltip="This is Badge 5">
+        <img src="hud/6.png" alt="Badge 6" class="badge" data-tooltip="This is Badge 6">
+        <img src="hud/7.png" alt="Badge 7" class="badge" data-tooltip="This is Badge 7">
+         <a href="https://discord.gg/m3-org" target="_blank"><img src="hud/8.png" alt="Badge 8" class="badge" data-tooltip="This is Badge 8"></a>
+        <a href="https://zora.co/collect/eth:0xb67ff46dfde55ad2fe05881433e5687fd1000312" target="_blank"><img src="hud/9.png" alt="Badge 9" class="badge" data-tooltip="This is Badge 9"></a>
+        <a href="https://github.com/M3-org/charter" target="_blank"><img src="hud/10.png" alt="Badge 10" class="badge" data-tooltip="This is Badge 10"></a>
+        <!-- Add more badges as needed -->
+    </div>
+  </div>
 
   <script src="scripts/script.js"></script>
+  <script src="scripts/sidebarToggle.js"></script>
 
 </body>
 </html>
