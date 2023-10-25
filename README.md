@@ -1,12 +1,13 @@
 # M3TV Network JSON Schema
+![](https://hackmd.io/_uploads/S17etZvfT.jpg)
 
-This JSON schema is designed for managing, automating, and presenting a 24/7 live broadcast network named M3TV. The JSON includes various components to accommodate shows, commercials, live events, interrupts, and interviews. It is structured to provide all the required details for a network programmer.
+This JSON schema is designed for managing, automating, and presenting a 24/7 live broadcast network named M3TV. The JSON includes various components to accommodate shows, commercials, live events, interrupts, and interviews. It is structured to provide all the required details for a network programmer. 
 
 [toc]
 
 ---
 
-## Network
+## Metadata Breakdown and Details
 
 ### Name
 - `name`: The name of the network.
@@ -102,8 +103,10 @@ This JSON schema is designed for managing, automating, and presenting a 24/7 liv
 
 ---
 
+### Example JSON
 
 <details>
+    
 ```json
 {
   "network": {
@@ -180,3 +183,5 @@ This JSON schema is designed for managing, automating, and presenting a 24/7 liv
 ```
 
 </details>
+
+
