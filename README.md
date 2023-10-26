@@ -3,6 +3,8 @@
 
 This JSON schema is designed for managing, automating, and presenting a 24/7 live broadcast network named M3TV. The JSON includes various components to accommodate shows, commercials, live events, interrupts, and interviews. It is structured to provide all the required details for a network programmer. 
 
+https://www.figma.com/file/Y3qClwxIryXEMMkKoBIjds/m3tV-Network?type=whiteboard&node-id=0%3A1&t=BqnHKP5UK8v8WDtO-1
+
 ---
 
 ## Metadata Breakdown and Details
