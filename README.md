@@ -7,6 +7,47 @@ https://www.figma.com/file/Y3qClwxIryXEMMkKoBIjds/m3tV-Network?type=whiteboard&n
 
 ![image](https://github.com/gm3/m3tv-network/assets/7612104/39077d79-2d80-4c7e-808d-8a9a1d9a54f0)
 
+A high-level overview detailing the content flow for the system.
+
+## Revenue Pathway
+- **OpenAI**: Produces shows which feed into the NFT Projects.
+- **NFT Projects**: Interacts with the MINT process.
+- **MINT**: Possibly involved in minting NFTs, uses NFT Metadata.
+- **Revenue Generation**: 
+  - **Treasury**: Influenced by a DAO vote/multisig mechanism.
+  - **Sponsors**
+  - **NFT Sales**
+  - **Commercials**
+
+## Frontend Pathway
+- Content is displayed or interacts with the frontend through:
+  - **Events**
+  - **Preposals** (Might be a typo; possibly meant "Proposals")
+  - **Donations**
+  - **Website**
+
+## Operators
+- **Remote OBS Control**: Part of the module for operators.
+- **AI Show Runners**: Another entity in the operators module.
+- **Mods (Moderators)**: Likely involved in managing or moderating the stream.
+- **Stream**: Managed using the OBS Instance on AWS which has:
+  - Different stages/scenes
+  - Overlays
+  - Video sources
+  - Audio sources
+
+## Metadata Storage and Automation
+- **GitHub Actions**: Used to automate tasks like uploading videos and audios to AWS Storage. Triggered by the addition of a new media file.
+- **Storage Distinction**:
+  - **Cloud AWS Storage**: Explicitly for storing videos.
+  - **Cloud AWS GPU Instance**: Possibly for processing or streaming.
+
+## Streaming
+- Managed by an **OBS instance on AWS** which uses:
+  - Different scenes
+  - Overlays
+  - The encoding process signifies the conversion of media into a format suitable for streaming.
+
 
 ---
 
