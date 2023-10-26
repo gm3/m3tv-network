@@ -5,6 +5,9 @@ This JSON schema is designed for managing, automating, and presenting a 24/7 liv
 
 https://www.figma.com/file/Y3qClwxIryXEMMkKoBIjds/m3tV-Network?type=whiteboard&node-id=0%3A1&t=BqnHKP5UK8v8WDtO-1
 
+![image](https://github.com/gm3/m3tv-network/assets/7612104/39077d79-2d80-4c7e-808d-8a9a1d9a54f0)
+
+
 ---
 
 ## Metadata Breakdown and Details
