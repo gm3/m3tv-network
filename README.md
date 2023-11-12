@@ -557,6 +557,38 @@ For an efficient 30-minute meeting, we'll focus on reviewing episodes, deciding 
 - **Feedback Loop**: Post-meeting feedback for continuous improvement.
 
 
+### Possible Python Schedule Automation to change scenes
+
+```python
+import schedule
+import time
+import requests
+
+def change_scene(scene_name):
+    url = "http://your_obs_websocket_server_address"  # Replace with your OBS WebSocket URL
+    data = {"scene-name": scene_name}
+    
+    try:
+        response = requests.post(url, json=data)
+        if response.status_code == 200:
+            print(f"Scene changed to {scene_name}")
+        else:
+            print(f"Failed to change scene. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+
+# Schedule the scene change
+schedule.every().day.at("10:00").do(change_scene, scene_name="YourSceneName")  # Set your desired time and scene name
+
+# Run the scheduler
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+
+```
+
+
+
 ---
 
 
