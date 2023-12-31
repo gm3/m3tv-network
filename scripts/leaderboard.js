@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('../json/basic_m3tv_data.json')
+    fetch('./json/basic_m3tv_data.json')
     .then(response => response.json())
     .then(data => {
         console.log("Fetched data:", data); // Debug: Log the fetched data
