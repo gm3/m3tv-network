@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function loadVodContent() {
     //console.log("loadVodContent called");
 
-    fetch('../json/basic_m3tv_data.json')
+    fetch('./json/basic_m3tv_data.json')
         .then(response => {
             //console.log("Received response from fetch");
             if (!response.ok) {
