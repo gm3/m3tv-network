@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
 
     // Fetch the JSON data and process it
-    fetch('../json/basic_m3tv_data.json')
+    fetch('./json/basic_m3tv_data.json')
     .then(response => response.json())
     .then(data => {
         // Process the data
