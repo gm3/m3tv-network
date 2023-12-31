@@ -110,33 +110,8 @@ Each item in the `others` array represents other types of content (like news upd
                     "thumbnail": "thumbnail.png",
                     "file": "video.mp4"
                 }   
-            },
-            {
-                "id": "2",
-                "title": "Music Hour",
-                "schedule_time": "2023-01-01T01:00:00Z",
-                "length": "1h",
-                "OBSScene": "Scene_MusicHour",
-                "metadata": 
-                {
-                    "description": "Music videos",
-                    "tags": ["music"],
-                    "rating": 4.5,
-                    "fallback": "Fallback Show 1",
-                    "season": 1,
-                    "episode": 1,
-                    "url": "https://www.twitter.com/boomboxheads",
-                    "director": "Boomboxhead",
-                    "producer": "Boomboxhead",
-                    "cast": [
-                              "Boomboxhead"
-                            ],
-                    "genre": "Comedy",
-                    "social": ["https://www.twitter.com/m3org"],
-                    "thumbnail": "thumbnail.png",
-                    "file": "video.mp4"
-                }   
             }
+        ],
         "commercials": [
             {
                 "id": "1c",
@@ -170,6 +145,7 @@ Each item in the `others` array represents other types of content (like news upd
                     "file": "video.mp4"
                 }   
             }
+      ],
         "others": [
             {
                 "id": "1i",
