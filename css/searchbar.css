@@ -1,0 +1,67 @@
+#searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    position: relative;
+}
+
+#searchInput {
+    padding: 8px;
+    padding-right: 30px; /* Room for the icon */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
+    flex-grow: 1;
+}
+
+.search-icon {
+    padding: 8px;
+    background: transparent;
+    border: none; /* Remove border */
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Rounded corners on the right side */
+}
+
+.search-icon:hover {
+    color: #333;
+}
+
+/* Optional: Style to indicate focus on the input field */
+#searchInput:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25); /* Add custom focus indication */
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /* Position it below the search box */
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #414141; 
+    border-bottom: 1px solid #d4d4d4; 
+}
+
+/* When hovering over an item: */
+.autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+}
+
+/* When an item is focused on: */
+.autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+}
+

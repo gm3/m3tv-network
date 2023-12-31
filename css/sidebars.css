@@ -1,0 +1,67 @@
+.sidebar {
+  width: 200px;
+  background-color: black;
+  transition: width 0.3s;
+  text-wrap: wrap;
+  font-size: .5em; 
+  margin: 0px;
+}
+
+.sidebar-left {
+  float: left;
+}
+
+.sidebar-right {
+  float: right;
+  width: 300px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+  /* schedule */
+#schedule-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-entry {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: grab;
+}
+
+.timeline {
+  display: flex;
+  margin: 20px;
+}
+
+.timeline-block {
+  width: 100px;
+  height: 503px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  cursor: grab;
+}
+
+/* CSS for highlighting on hover */
+.timeline-item:hover {
+    background-color: #f0f0f050; /* Change the background color on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  /* CSS for accent color on click */
+  .timeline-item.active {
+    background-color: #007bff; /* Change to your desired accent color */
+    color: #fff; /* Change text color for better visibility */
+  }
+
+
+  

@@ -1,0 +1,46 @@
+.profile {
+  margin: 10px;
+}
+
+.profile img {
+  width: 50px;
+  height: 50x;
+}
+
+.profile h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile p {
+  
+  color: #ffffff;
+}
+
+#metadata-container dl {
+  margin: 0;
+  padding: 0;
+}
+
+#metadata-container dt {
+  font-weight: bold;
+  font-size: smaller;
+}
+
+#metadata-container dd {
+  margin: 2px;
+  padding: 0 0 0.1em 0;
+  font-size: smaller;
+}
+
+#metadata-container {
+    max-width: 100%;
+  }
+
+.profile, #metadata-container {
+  flex-basis: 100%;
+}
+
+.profile, #metadata-container {
+  padding: 10px; /* Adjust as needed */
+}

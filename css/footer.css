@@ -1,0 +1,23 @@
+.site-footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 3px;
+  text-align: center;
+  font-size: 11px;
+  min-height: 30px; /* Set a minimum height */
+  /* Or use viewport height */
+  height: 0vh;
+  position: sticky;
+  bottom: 0;
+}
+
+.site-footer a {
+  
+  color: #fff;
+  text-decoration: none;
+  margin: 0 3px;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}

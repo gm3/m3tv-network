@@ -1,0 +1,45 @@
+#leaderboard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(0, 0, 0);
+    margin: 0px;
+}
+
+.leaderboard-entry {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin: 0px;
+    border: 1px solid #494949;
+    padding: 0px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    color: rgb(253, 253, 253);
+}
+
+.leaderboard-entry img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Standardizing font styles */
+.leaderboard-entry h3, .leaderboard-entry p {
+    margin: 20px;
+    font-family: 'Arial', sans-serif; /* Consistent font family */
+    font-size: 16px; /* Standard font size */
+    text-align: left;
+    background-color: rgb(0, 0, 0);
+    word-wrap: break-word;
+}
+
+.leaderboard-entry .star-image {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 20px;
+}

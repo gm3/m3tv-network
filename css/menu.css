@@ -1,0 +1,37 @@
+/* Styling for the menu header */
+.menu-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000; /* Background color for the header */
+  padding: 0px; /* Adjust the padding as needed */
+  margin: 0px;
+}
+
+/* Styling for the logo */
+.logo img {
+  max-width: 40px;  height: auto; /* Maintain the aspect ratio */
+  margin-top: 6px;
+  margin-right: 5px;
+}
+
+/* Styling for the menu links */
+.menu a {
+  text-decoration: none;
+  color: #fff; /* Text color for the links */
+  margin-right: 20px; /* Adjust the margin as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  padding: 0px; /* Adjust the padding as needed */
+  margin: 5px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Hide the menu links */
+    }
+  
+    .logo img {
+        max-width: 30px; /* Reduce the logo size for smaller screens */
+    }
+  }

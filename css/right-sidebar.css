@@ -1,0 +1,113 @@
+#right-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Adjust height as needed */
+  border-radius: 10px; /* Rounded corners for the sidebar */
+  position: relative; /* Set the right sidebar to relative positioning */
+}
+
+#chat-window {
+  flex-grow: 1;
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding: 10px; /* Added padding for spacing */
+  background-color: #1d1d1d; /* Adjust the color as needed */
+  border-bottom: 1px solid #202020; /* Optional border for visual separation */
+  border-top-left-radius: 10px; /* Rounded top corners */
+  border-top-right-radius: 10px; /* Rounded top corners */
+}
+
+#chat-input-area {
+  margin-bottom: 95px;
+  display: flex;
+  padding: 10px; /* Added padding for spacing */
+  background-color: #1d1d1d; /* Adjust the color as needed */
+  color: #eee;
+  border-bottom-left-radius: 10px; /* Rounded bottom corners */
+  border-bottom-right-radius: 10px; /* Rounded bottom corners */
+}
+
+#chat-input {
+  flex-grow: 1;
+  margin-right: 10px; /* Adjusted margin for spacing */
+  height: 20px;
+  background-color: #1d1d1d; /* Adjust the color as needed */
+  color: #eee;
+  border-radius: 5px; /* Rounded corners for the input field */
+}
+
+#send-button {
+  width: 20px; /* Adjust width as needed */
+  background-color: #1d1d1d; /* Adjust the color as needed */
+  color: #eee;
+  border-radius: 5px; /* Rounded corners for the send button */
+}
+
+
+#default-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65); /* Semi-transparent black background */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  /* Add padding if needed */
+}
+
+#default-overlay button {
+  width: 150px; /* Uniform width */
+  padding: 10px;
+  margin: 5px;
+  background-color: #505050; /* Change as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover */
+}
+/* Hover effect for buttons */
+#default-overlay button:hover {
+  background-color: #3e8e41; /* Darker shade on hover */
+  transform: scale(1.05); /* Slight increase in size */
+}
+
+#default-overlay label {
+  color: #ccc; /* Light grey color */
+  font-size: 14px;
+}
+
+#default-overlay a {
+  color: #87CEEB; /* Sky blue color, change as needed */
+  text-decoration: none;
+}
+
+#default-overlay a:hover {
+  text-decoration: underline;
+}
+
+/* Styles for the checkbox and link */
+#default-overlay input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#chat-window, #chat-input-area {
+  position: relative;
+  z-index: 1;
+}
+
+#default-overlay label {
+  margin-left: 5px;
+}
+
+#default-overlay div {
+  margin-top: 10px;
+}

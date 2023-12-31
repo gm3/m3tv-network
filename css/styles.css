@@ -1,0 +1,54 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: rgb(255, 255, 255);
+  background-color: black;
+  scrollbar-width: none; /* For Firefox */
+  overflow-y: hidden;
+  -ms-overflow-style: none; /* For Internet Explorer 10+ */
+}
+  
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* take available vertical space */
+  background-color: black;
+  
+}
+
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  overflow: auto; /* Enable scrolling for main content */
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between; /* This will space out the child elements */
+  align-items: flex-start; /* Aligns items to the top */
+  background-color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

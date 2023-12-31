@@ -1,0 +1,59 @@
+.broadcast-window {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    background-size: cover;
+    background-position: center;
+}
+
+.broadcast-window-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto; /* Enable scrolling for the broadcast window */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer 10+ */
+}
+
+/* For Chrome, Safari, and Opera */
+.broadcast-window-content::-webkit-scrollbar {
+    display: none;
+}
+
+
+  
+.broadcast-window-wrapper {
+    flex: 1;
+    background-color: #202020;  /* fallback background color */
+    
+}
+
+.title-container {
+    display: flex;
+    align-items: center; /* To vertically align items in the middle */
+    justify-content: space-between; /* Adjusts spacing between children */
+    margin: 0px;
+    background-color: #1d1d1d;
+  }
+
+  .action-buttons{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin: 0px;
+  
+  }
+  
+  .titleText{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    margin: 0px;
+    margin-right: auto; /* Pushes the action buttons to the right */
+  
+  
+  }
