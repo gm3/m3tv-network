@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="menu" id="menu">
             <a href="https://discord.gg/fawnD8R9QA" target="_blank">Discord</a>
             <a href="https://github.com/gm3/m3tv-network" target="_blank">Github</a>
-            <a href="https://053btxrh5ud.typeform.com/to/lGzAVaNd" target="_blank">Sumbit</a>
             <a href="leaderboard.html" target="_blank">Leaderboard</a>
         </div>
         <form id="searchForm">
