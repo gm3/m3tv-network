@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     menu.innerHTML = `
     <header class="menu-header">
         <div class="logo">
-            <a href="/"><img src="/images/m3tvlogo.png" alt="Logo"></a>
+            <a href="/"><img src="images/m3tvlogo.png" alt="Logo"></a>
         </div>
         <div class="menu" id="menu">
             <a href="https://discord.gg/fawnD8R9QA" target="_blank">Discord</a>
