@@ -4,7 +4,7 @@ M3TV Network
 
 Overview
 ---
-- [:spiral_note_pad: Summery]([/](https://hackmd.io/)Vv8Kj6mDQg2GZZN-j4Wy0A)
+- [Summery]([/](https://hackmd.io/)Vv8Kj6mDQg2GZZN-j4Wy0A)
 - [:grey_question: Why Do This?]([/](https://hackmd.io/)rnwisHELQ26TtCHGOszloQ)
 - [:world_map: High Level Overview]([/](https://hackmd.io/)qWt6aZLxSBauuf17U4XBvA)
 
