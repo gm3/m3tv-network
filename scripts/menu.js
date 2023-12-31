@@ -5,13 +5,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     menu.innerHTML = `
     <header class="menu-header">
+    <div class="dropdown">
+    <button class="dropbtn">≡</button>
+        <div class="dropdown-content">
+            
+        
+        <!-- External links open in a new tab -->
+        <a href="https://discord.gg/fawnD8R9QA" target="_blank">Discord</a>
+        <a href="https://github.com/gm3/m3tv-network" target="_blank">Github</a>
+        <a href="leaderboard.html" target="_blank">Leaderboard</a>
+        </div>
+    </div>
+
         <div class="logo">
             <a href="/"><img src="images/m3tvlogo.png" alt="Logo"></a>
         </div>
         <div class="menu" id="menu">
-            <a href="https://discord.gg/fawnD8R9QA" target="_blank">Discord</a>
-            <a href="https://github.com/gm3/m3tv-network" target="_blank">Github</a>
-            <a href="leaderboard.html" target="_blank">Leaderboard</a>
+        <!-- <a href="https://discord.gg/fawnD8R9QA" target="_blank">Discord</a>-->
+        <!--  <a href="https://github.com/gm3/m3tv-network" target="_blank">Github</a>-->
+        <!--  <a href="leaderboard.html" target="_blank">Leaderboard</a>-->
         </div>
         <form id="searchForm">
             <input type="text" id="searchInput" placeholder="Search...">
@@ -133,28 +145,9 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching content:', error));
     }
 
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // When the user clicks on the button, toggle between hiding and showing the dropdown content
-        function dropdownToggle() {
-          document.querySelector(".dropdown-content").classList.toggle("show");
-        }
+   
+
       
-        // Attach event listener to dropdown button
-        document.querySelector(".dropbtn").addEventListener("click", dropdownToggle);
-      
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-          if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-              }
-            }
-          }
-        }
-      });
       
 
 

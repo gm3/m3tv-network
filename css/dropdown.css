@@ -1,16 +1,17 @@
 /* Style the dropdown button */
 .dropbtn {
-  background-color: #777777;
+  background-color: #000000;
   color: white;
   padding: 5px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  margin: 10px;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #8a8a8a;
+  background-color: #313131;
 }
 
 /* Container for dropdown items */

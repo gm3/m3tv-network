@@ -1,22 +1,10 @@
+
+
 document.addEventListener("DOMContentLoaded", function() {
     var leftSidebar = document.getElementById('left-sidebar');
     leftSidebar.innerHTML = `
     <!-- <button class="toggle-button toggle-left">X</button>-->
-    <div class="dropdown">
-  <button class="dropbtn">≡</button>
-    <div class="dropdown-content">
-         
-        
-        <!-- External links open in a new tab -->
-        <a href="https://discord.gg/fawnD8R9QA" target="_blank">Discord</a>
-        <a href="https://github.com/gm3/m3tv-network" target="_blank">Github</a>
-        <a href="https://053btxrh5ud.typeform.com/to/lGzAVaNd" target="_blank">Sumbit</a>
-
-
-        <!-- Internal links to load content in the broadcast window -->
-        <a href="/">Connect</a>
-    </div>
-    </div>
+   
     
     <h2>Schedule</h2>
     
