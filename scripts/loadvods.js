@@ -7,55 +7,53 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function loadVodContent() {
-    //console.log("loadVodContent called");
-
     fetch('./json/basic_m3tv_data.json')
         .then(response => {
-            //console.log("Received response from fetch");
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
             }
             return response.json();
         })
         .then(data => {
-            //console.log("Data received and parsed:", data);
-
             const networkData = data.network;
+
             Object.keys(networkData).forEach(category => {
                 if (category === 'commercials') {
                     return;
                 }
 
-                //console.log(`Processing category: ${category}`);
-
                 networkData[category].forEach((item, index) => {
-                    //console.log(`Processing item ${index} in category ${category}:`, item);
-
-                    // Convert schedule time to a readable format
-                    const readableScheduleTime = new Date(item.schedule_time).toLocaleString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit'
-                    });
-
+                    const readableScheduleTime = new Date(item.schedule_time).toLocaleString('en-US', { /*...*/ });
+                    
                     const vodItem = document.createElement('div');
                     vodItem.classList.add('vod-item');
 
-                    vodItem.innerHTML = `
-                    <div class="title"><a href="" id=
-                    vodlink-title">${item.title} - ${readableScheduleTime}</a></div>    
-                    <a href="" id=
-                        vodlink">
-                        <img src="${item.metadata.thumbnail}" alt="${item.title}"></a>
+                    // Generate unique IDs
+                    const titleId = `vodlink-title-${item.id}`;
+                    const linkId = `vodlink-${item.id}`;
 
-                        <!--<div class="description">${item.metadata.description}</div>-->
-                        <!-- Add more details as needed -->
+                    // Set the href to the video file URL
+                    vodItem.innerHTML = `
+                        <div class="title">
+                            <a href="${item.metadata.file}" id="${titleId}">${item.title} - ${readableScheduleTime}</a>
+                        </div>    
+                        <a href="${item.metadata.file}" id="${linkId}">
+                            <img src="${item.metadata.thumbnail}" alt="${item.title}">
+                        </a>
                     `;
 
                     document.getElementById('vod-list').appendChild(vodItem);
+
+                    // Add click event listeners for loading videos
+                    document.getElementById(titleId).addEventListener('click', function(event) {
+                        event.preventDefault();
+                        loadVideoIntoPlayer(this.href);
+                    });
+
+                    document.getElementById(linkId).addEventListener('click', function(event) {
+                        event.preventDefault();
+                        loadVideoIntoPlayer(this.href);
+                    });
                 });
             });
         })
@@ -63,6 +61,13 @@ function loadVodContent() {
             console.error('Error loading content:', error);
         });
 }
+
+function loadVideoIntoPlayer(url) {
+    const player = document.querySelector('video');
+    player.src = url;
+    player.play();
+}
+
 
 
 
