@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function() {
             rating: show.metadata.rating,
             url: show.metadata.url,
             description: show.metadata.description,
-            thumbnail: show.metadata.thumbnail
+            thumbnail: show.metadata.thumbnail,
+            file: show.metadata.file
         }));
     }
 
-    // Autocomplete function
     function autocomplete(inp, arr) {
         var currentFocus;
         inp.addEventListener("input", function(e) {
@@ -74,9 +74,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     b = document.createElement("DIV");
                     b.innerHTML = "<strong>" + arr[i].title.substr(0, val.length) + "</strong>";
                     b.innerHTML += arr[i].title.substr(val.length);
-                    b.innerHTML += "<input type='hidden' value='" + arr[i].title + "'>";
+                    // Use the 'file' attribute for the video URL
+                    b.innerHTML += "<input type='hidden' value='" + arr[i].file + "'>";
                     b.addEventListener("click", function(e) {
-                        inp.value = this.getElementsByTagName("input")[0].value;
+                        var videoUrl = this.getElementsByTagName("input")[0].value;
+                        loadVideoIntoPlayer(videoUrl); // Load the video URL into the player
                         closeAllLists();
                     });
                     a.appendChild(b);
@@ -123,6 +125,15 @@ document.addEventListener("DOMContentLoaded", function() {
             closeAllLists(e.target);
         });
     }
+    
+    
+    function loadVideoIntoPlayer(url) {
+        const player = document.querySelector('video');
+        player.src = url;
+        player.play();
+    }
+
+
 
     // Add click event listener to each menu item that has a 'data-url'
     document.querySelectorAll('.menu a[data-url]').forEach(menuItem => {
