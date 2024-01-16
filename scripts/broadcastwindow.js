@@ -5,15 +5,41 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="broadcast-window" id="broadcast-window">
         <div class="broadcast-window-content">
             <div class="title-container">
+                <div class="live-indicator">
+                    <span class="live-unicode-marker">&#x1F534;</span> <!-- Red Circle Unicode -->
+                    <span class="live-text">VOD</span>
+                </div>
                 <div class="titleText" id="titleText">M3TV Demo Day: 2023 Recap</div>
-                    <div class="action-buttons" id="action-buttons">
+
+                
+
+                <div class="action-buttons" id="action-buttons">
+                    <div class="button-tooltip-container">
                         <button class="button follow-button">🌟</button>
-                        <button class="button">💰</button>
-                        <button class="button">🎟️</button>
-                        <button class="button">👍</button>
-                        <button class="button">👎</button>
-                        <button class="button">🔗</button>
+                        <span class="tooltip-text">Follow</span>
                     </div>
+                    <div class="button-tooltip-container">
+                        <button class="button">💰</button>
+                        <span class="tooltip-text">Mint</span>
+                    </div>
+                    <div class="button-tooltip-container">
+                        <button class="button">🎟️</button>
+                        <span class="tooltip-text">Poap</span>
+                    </div>
+                    <div class="button-tooltip-container">
+                        <button class="button">👍</button>
+                        <span class="tooltip-text">Like</span>
+                    </div>
+                    <div class="button-tooltip-container">
+                        <button class="button">👎</button>
+                        <span class="tooltip-text">Dislike</span>
+                    </div>
+                    <div class="button-tooltip-container">
+                        <button class="button">🔗</button>
+                        <span class="tooltip-text">Share</span>
+                    </div>
+                </div>
+            
             </div>       
             <div id="videoContainer" class="video-container">
                 <video id="myVideo" width="100%" height="auto" autoplay muted>
@@ -29,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             </div>         
                             <div id="currentTime" class="time-display">00:00:00</div>
                         </div>
+                        
                     </div>
                     <div class="right-controls">
                         
