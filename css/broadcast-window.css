@@ -38,6 +38,7 @@
     justify-content: space-between; /* Adjusts spacing between children */
     margin: 2px;
     background-color: #1d1d1d;
+    font-size: 1vmax;
   }
 
   .action-buttons {
@@ -52,10 +53,10 @@
     padding: 0px 0px; /* Padding inside each button */
     border: none; /* Removes default border */
     border-radius: 5px; /* Rounded corners for buttons */
-    background-color: #444; /* Background color of the buttons */
+    background: none;
     color: white; /* Text color */
     text-transform: uppercase; /* Optional: Makes text uppercase */
-    font-size: 20px; /* Font size */
+    font-size: 17px; /* Font size */
     cursor: pointer; /* Changes cursor to indicate button */
     transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effect */
 }
@@ -171,4 +172,43 @@
     margin-right: 0px; /* Space between marker and text */
     margin-top: -2px;
     /* Add additional styling if needed */
+}
+
+.info-button {
+    background: none;
+    border-radius: 3px;
+    font-size: 20px; /* Adjust as needed */
+    margin-left: 10px;
+    cursor: pointer;
+    color: #aaa;
+    
+}
+
+.countdown {
+    margin-top: 2px;
+    color: #fff;
+    font-size: 14px;
+}
+
+
+
+.info-tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.info-tooltip {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 300px; /* Adjust as needed */
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    /* Position the tooltip below the button */
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
 }

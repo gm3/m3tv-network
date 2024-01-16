@@ -83,7 +83,7 @@ function loadCurrentVideo(schedule) {
             console.log("Video ended. Loading next item.");
             updateSchedule();
         });
-
+        
         // Play the video when the user interacts with it
         videoPlayer.addEventListener('play', function () {
             // Video playback started successfully

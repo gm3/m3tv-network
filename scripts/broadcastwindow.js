@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="broadcast-window" id="broadcast-window">
         <div class="broadcast-window-content">
             <div class="title-container">
+            <button class="info-button">&#x2139;</button> <!-- Unicode INFO symbol -->
                 <div class="live-indicator">
                     <span class="live-unicode-marker">&#x1F534;</span> <!-- Red Circle Unicode -->
                     <span class="live-text">VOD</span>
@@ -14,29 +15,31 @@ document.addEventListener("DOMContentLoaded", function() {
                 
 
                 <div class="action-buttons" id="action-buttons">
+
+                <div id="claimCountdown" class="countdown"><span id="claimTime">00:00:00</span></div>
+            
                     <div class="button-tooltip-container">
-                        <button class="button follow-button">🌟</button>
-                        <span class="tooltip-text">Follow</span>
-                    </div>
+                        <button class="button">🎟️</button>
+                        <span class="tooltip-text">Claim</span>
+                    </div>   
+
+                    <div id="mintCountdown" class="countdown"><span id="mintTime">00:00:00</span></div>
+
                     <div class="button-tooltip-container">
-                        <button class="button">💰</button>
+                        <button class="button">🟩</button>
                         <span class="tooltip-text">Mint</span>
                     </div>
                     <div class="button-tooltip-container">
-                        <button class="button">🎟️</button>
-                        <span class="tooltip-text">Poap</span>
+                        <button class="button">🕸</button>
+                        <span class="tooltip-text">World</span>
                     </div>
                     <div class="button-tooltip-container">
-                        <button class="button">👍</button>
-                        <span class="tooltip-text">Like</span>
-                    </div>
-                    <div class="button-tooltip-container">
-                        <button class="button">👎</button>
-                        <span class="tooltip-text">Dislike</span>
-                    </div>
-                    <div class="button-tooltip-container">
-                        <button class="button">🔗</button>
+                        <button class="button">🌎</button>
                         <span class="tooltip-text">Share</span>
+                    </div>
+                    <div class="button-tooltip-container">
+                        <button class="button">🔗Connect</button>
+                        <span class="tooltip-text">Connect</span>
                     </div>
                 </div>
             
@@ -68,6 +71,9 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div class="container" id="container"></div>
         </div> 
+       
     </div>`;
+
+ 
 
 });
