@@ -161,6 +161,7 @@
 .left-controls {
     display: flex;
     justify-content: flex-start; /* Aligns items to the left */
+    margin-bottom: -25px;
     
 }
 
@@ -208,19 +209,21 @@
 
 .time-and-volume {
     display: flex;
-    justify-content: flex-end; /* Aligns items to the right */
+    justify-content: flex-start; /* Aligns items to the right */
 
 }
 #currentTime {
     display: flex;
+    font-size: .7em;
+    margin-top: 2px;
    
  }
 
 
 @media (max-width: 600px) {
     .video-controls button {
-        width: 30px; /* Adjust smaller size for mobile */
-        height: 30px; /* Adjust smaller size for mobile */
+        width: 20px; /* Adjust smaller size for mobile */
+        height: 20x; /* Adjust smaller size for mobile */
         background-size: 15px 15px; /* Adjust smaller size for mobile */
     }
     .video-controls input[type="range"] {
