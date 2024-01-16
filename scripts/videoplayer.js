@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var currentTimeDisplay = document.getElementById('currentTime');
     var progressBarContainer = document.getElementById('progressBarContainer');
     var progressBar = document.getElementById('progressBar');
-    var progressIndicator = document.getElementById('progressIndicator');
+   
     var muteToggleButton = document.getElementById('muteToggle');
     var volumeSlider = document.getElementById('volumeSlider');
     var fullScreenToggleButton = document.getElementById('fullScreenToggle');
@@ -52,6 +52,41 @@ document.addEventListener("DOMContentLoaded", function() {
             video.pause();
         }
     });
+    playPauseButton.addEventListener('click', togglePlayPause);
+    playPauseButton.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            togglePlayPause();
+        }
+    });
+
+    function togglePlayPause() {
+        if (video.paused) {
+            video.play();
+            playPauseButton.setAttribute('aria-label', 'Pause');
+        } else {
+            video.pause();
+            playPauseButton.setAttribute('aria-label', 'Play');
+        }
+    } 
+
+    document.addEventListener('keydown', function(event) {
+        // Check if the spacebar is pressed
+        if (event.code === 'Space' || event.keyCode === 32) {
+            event.preventDefault(); // Prevent the default spacebar action (e.g., page scrolling)
+    
+            // Toggle play/pause
+            if (video.paused) {
+                video.play();
+                playPauseButton.classList.remove('play');
+                playPauseButton.classList.add('pause');
+            } else {
+                video.pause();
+                playPauseButton.classList.remove('pause');
+                playPauseButton.classList.add('play');
+            }
+        }
+    });
+    
 
     // Update the play button text and current time
 

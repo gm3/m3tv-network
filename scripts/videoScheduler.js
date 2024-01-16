@@ -1,5 +1,9 @@
 // videoScheduler.js
 
+const now = new Date();
+console.log("Local Time:", now.toString());
+console.log("UTC Time:", now.toISOString());
+
 function parseDuration(durationStr) {
     const duration = {
         h: 3600000,  // 1 hour in milliseconds
@@ -29,23 +33,21 @@ function parseDuration(durationStr) {
 
 
 function findCurrentItem(schedule) {
-    // Correctly obtaining the current UTC time
     const now = new Date();
-    const currentTimeUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 
-                                             now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds()));
-
-    console.log("Correct Current UTC Time:", currentTimeUTC.toISOString());
+    // Convert current time to milliseconds since start of the day
+    const currentTimeInMillis = (now.getUTCHours() * 3600000) + (now.getUTCMinutes() * 60000) + (now.getUTCSeconds() * 1000);
 
     return schedule.find(item => {
-        const scheduleTimeUTC = new Date(item.schedule_time); // Assuming this is in UTC
-        const endTimeUTC = new Date(scheduleTimeUTC.getTime() + parseDuration(item.length));
-        //console.log("Checking item:", item.title, 
-                    //"Schedule Time UTC:", scheduleTimeUTC.toISOString(), 
-                    //"End Time UTC:", endTimeUTC.toISOString());
+        const scheduleTime = new Date(item.schedule_time);
+        // Convert schedule time to milliseconds since start of the day
+        const scheduleTimeInMillis = (scheduleTime.getUTCHours() * 3600000) + (scheduleTime.getUTCMinutes() * 60000) + (scheduleTime.getUTCSeconds() * 1000);
+        const durationInMillis = parseDuration(item.length);
+        const endTimeInMillis = scheduleTimeInMillis + durationInMillis;
 
-        return currentTimeUTC >= scheduleTimeUTC && currentTimeUTC < endTimeUTC;
+        return currentTimeInMillis >= scheduleTimeInMillis && currentTimeInMillis < endTimeInMillis;
     });
 }
+
 
 
 function loadCurrentVideo(schedule) {
@@ -74,6 +76,13 @@ function loadCurrentVideo(schedule) {
         }
 
         console.log("Loading video. Current time:", now.toISOString(), "Offset in seconds:", offsetInSeconds);
+
+
+        // When the video ends, load the next video
+        videoPlayer.addEventListener('ended', function() {
+            console.log("Video ended. Loading next item.");
+            updateSchedule();
+        });
 
         // Play the video when the user interacts with it
         videoPlayer.addEventListener('play', function () {
@@ -123,9 +132,6 @@ function extractSchedule(networkData) {
     return schedule;
 }
 
-
-// Initialize and periodically update the video based on the current schedule
-setInterval(updateSchedule, 3600000); // Update every minute // this is a bug and needs to be changed to track to update when a video ends
 
 
 // Initial load
