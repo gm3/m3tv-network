@@ -1,0 +1,238 @@
+.video-container {
+    position: relative;
+    max-width: 100%; /* Adjust as necessary */
+    margin: auto; /* Center the video if the container has extra space */
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Semi-transparent black background */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px; /* Reduce if necessary */
+    box-sizing: border-box;
+    flex-wrap: nowrap; /* This will prevent wrapping */
+}
+
+.video-controls button {
+    width: 20px; /* Adjust as necessary for consistency */
+    height: 20px; /* Adjust as necessary for consistency */
+    padding: 0; /* Reset padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* If you don't want borders */
+    background-size: 20px 20px; /* Adjust as necessary */
+    flex: 0 1 auto; /* This allows the item to shrink if necessary */
+}
+
+.video-controls button,
+.video-controls input[type="range"] {
+    flex: 0 1 auto; /* This allows the item to shrink if necessary */
+    background: none;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.video-controls button:hover,
+.video-controls input[type="range"]:hover {
+    background: white;
+    color: black;
+}
+
+#myVideo {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+/* Play Button CSS */
+#playPause {
+    font-size: 1em;
+    background: url('../images/play.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    margin-bottom: -30px;
+    
+}
+
+#playPause:hover {
+    background-color: rgba(51, 224, 255, 0.5); /* Slightly transparent on hover */
+    background-image: url('../images/play.png');
+    color: black;
+}
+
+#playPause.play {
+    background: url('../images/play.png') no-repeat center center;
+    background-size: contain;
+}
+
+#playPause.pause {
+    background: url('../images/pause.png') no-repeat center center;
+    background-size: contain;
+}
+
+.play {
+    background: url('../images/play.png') no-repeat center center;
+    background-size: contain;
+}
+
+.pause {
+    background: url('../images/pause.png') no-repeat center center;
+    background-size: contain;
+}
+
+
+.play:hover {
+    background-color: rgba(51, 224, 255, 0.5); /* Adjust as necessary */
+    background-image: url('../images/play.png'); /* Your hover image for play */
+    background-size: contain;
+}
+
+.pause:hover {
+    background-color: rgba(51, 224, 255, 0.5); /* Adjust as necessary */
+    background-image: url('../images/pause.png'); /* Your hover image for pause */
+    background-size: contain;
+}
+
+
+/* Mute Button CSS */
+#muteToggle {
+    padding: 5px 10px;
+    font-size: 1em;
+    background: url('../images/audio.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+#muteToggle:hover {
+    
+    background-image: url('../images/audio-mute.png');
+    color: black;
+}
+
+@media (max-width: 600px) {
+    #playPause, #muteToggle {
+        padding: 3px 6px; /* Adjust padding for smaller screens */
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+    }
+}
+
+
+
+/* Progress Bar */
+#progressBarContainer {
+    flex-grow: 1; /* Take up remaining space */
+    height: 10px;
+    background: #c5c5c5;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5px; /* Adjust this as needed to move the bar below other controls */
+    left: 0;
+    width: 100%;
+}
+
+#progressBar {
+    height: 100%;
+    background: #00f; /* Example color */
+    width: 0%; /* Initially no width */
+}
+
+#progressIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 15px; /* Width of the indicator */
+    background: #ff1c1c; /* Example color */
+    pointer-events: none; /* Ignore mouse events */
+}
+
+
+
+/* Left Controls */
+.left-controls {
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+    
+}
+
+
+/* Right Controls */
+
+
+.right-controls {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-end; /* Aligns items to the right */
+    /* You don't need to set a width or right property, flexbox will handle the positioning */
+}
+
+.right-controls > *:first-child {
+    margin-left: auto;
+}
+
+
+/* Fullscreen CSS*/
+
+#fullScreenToggle {
+    padding: 5px 10px;
+    font-size: 1em;
+    background: url('../images/full-screen.png') no-repeat center center;
+    background-size: contain;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+}
+
+#fullScreenToggle:hover {
+    background-color: rgb(59, 118, 245);
+    background-image: url('../images/full-screen.png');
+    color: black;
+}
+
+@media (max-width: 600px) {
+    #fullScreenToggle {
+        padding: 3px 6px; /* Adjust padding for smaller screens */
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+    }
+}
+
+
+.time-and-volume {
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right */
+
+}
+#currentTime {
+    display: flex;
+   
+ }
+
+
+@media (max-width: 600px) {
+    .video-controls button {
+        width: 30px; /* Adjust smaller size for mobile */
+        height: 30px; /* Adjust smaller size for mobile */
+        background-size: 15px 15px; /* Adjust smaller size for mobile */
+    }
+    .video-controls input[type="range"] {
+        padding: 3px 6px; /* Smaller padding on small screens */
+        font-size: 0.8em; /* Smaller font size on small screens */
+    }
+
+    .video-controls {
+        padding: 5px; /* Smaller padding on small screens */
+    }
+
+    #currentTime {
+       /* display: none; /* Hide current time on very small screens if needed */
+    }
+}
