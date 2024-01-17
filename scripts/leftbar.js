@@ -29,254 +29,132 @@ document.addEventListener("DOMContentLoaded", function() {
     
     `;
 
-        
-        //const toggleRightButton = document.querySelector('.toggle-right');
-        //const sidebarRight = document.querySelector('.sidebar-right');
-        //toggleRightButton.addEventListener('click', function() {
-        //sidebarRight.classList.toggle('collapsed');
-        //});
+    
 
+    const timeline = document.getElementById('timeline');
+
+    function timeToMillis(time) {
+        const [hours, minutes, seconds] = time.split(':').map(Number);
+        return (hours * 3600000) + (minutes * 60000) + (seconds * 1000);
+    }
+
+    function populateTimeline(schedule) {
         const timeline = document.getElementById('timeline');
-let globalNetworkData;
-
-
-function populateTimeline(schedule) {
-    let currentDate = new Date().toISOString().split('T')[0]; // Get the current date in YYYY-MM-DD format
-
-    schedule.forEach(item => {
-        // Create a div element for each timeline item
-        const timeSlot = document.createElement('div');
-        timeSlot.classList.add('timeline-item'); // Add the 'timeline-item' class
-
-        // Convert 12-hour time to 24-hour format and combine with the current date
-        const timeString = convertTo24HourFormat(currentDate, item.displayTime);
-
-        // Set the innerHTML of the div with the item's display time and title
-        timeSlot.innerHTML = `<strong>${item.displayTime}</strong> - ${item.title}`;
-
-        // Set the data-time attribute with the converted time string
-        timeSlot.setAttribute('data-time', timeString);
-
-        // Check if the item is the current show and add a class to highlight it
-        if (isCurrentShow(item)) {
-            timeSlot.classList.add('current-show');
-        }
-
-        // Add click event listener
-        timeSlot.addEventListener('click', () => {
-            // Remove active class from other items
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.classList.remove('active');
+        timeline.innerHTML = ''; // Clear existing entries
+    
+        // Filter out commercials and sort by schedule_time
+        const uniqueShows = schedule
+            .filter(item => item.type !== 'commercial')
+            .sort((a, b) => {
+                // Assuming schedule_time is in 'HH:mm:ss' format
+                return timeToMillis(a.schedule_time) - timeToMillis(b.schedule_time);
             });
+    
+        uniqueShows.forEach(item => {
+            const timeSlot = document.createElement('div');
+            timeSlot.classList.add('timeline-item');
+            timeSlot.innerHTML = `<strong>${item.schedule_time}</strong> - ${item.title}`;
+            timeline.appendChild(timeSlot);
+        });
+    }
+    
+    function isCurrentShow(itemTime, duration, currentTime) {
+        const itemStartTime = timeToMillis(itemTime);
+        const itemEndTime = itemStartTime + duration;
+        return currentTime >= itemStartTime && currentTime < itemEndTime;
+    }
+    
+    function updateCurrentTimeAndShows(schedule) {
+        const currentTimeElement = document.getElementById('current-time');
+        const currentShowElement = document.getElementById('current-show');
+        const upcomingShowElement = document.getElementById('upcoming-show');
+        var titleTextElement = document.getElementById('titleText'); // Get the title text element
 
-            // Add active class to the clicked item
-            timeSlot.classList.add('active');
-
-            // Display metadata or perform other actions
-            displayMetadata(item.id, globalNetworkData);
+    
+        const now = new Date();
+        const currentTime = timeToMillis(`${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`);
+    
+        let currentShow = null;
+        let upcomingShow = null;
+    
+        schedule.forEach(item => {
+            const duration = parseDuration(item.length);
+            if (isCurrentShow(item.schedule_time, duration, currentTime)) {
+                currentShow = item;
+            } else if (timeToMillis(item.schedule_time) > currentTime && !upcomingShow) {
+                upcomingShow = item;
+            }
         });
 
-        // Append the timeSlot to the timeline
-        timeline.appendChild(timeSlot);
-    });
-}
-
-function convertTo24HourFormat(currentDate, displayTime) {
-    // Conversion logic here. This function should take the 'displayTime' (in 12-hour format),
-    // convert it to 24-hour format, and then return the full datetime string in a format
-    // compatible with JavaScript's Date constructor.
-    // For now, it's a placeholder and needs the actual implementation.
-
-    return currentDate + 'T' + displayTime; // Placeholder: adjust this according to your conversion logic
-}
-
-
-// Function to check if an item is the current show
-function isCurrentShow(item) {
-    const now = new Date();
-    const scheduleTime = new Date(item.schedule_time);
-    return now >= scheduleTime && now < scheduleTime.getTime() + parseDuration(item.length);
-}
-
-  
-
-
-// Extract relevant schedule information from various sections
-function extractSchedule(networkData) {
-  const schedule = [];
-
-  // Extracting shows
-  networkData.shows.forEach(show => {
-    const showTime = new Date(show.schedule_time);
-    schedule.push({ 
-        id: show.id, // Make sure this line is correct
-        time: showTime, 
-        displayTime: showTime.toLocaleTimeString(), 
-        title: show.title 
-    });
-});
-
-  // Extracting commercials
-  networkData.commercials.forEach(commercial => {
-    const commercialTime = new Date(commercial.schedule_time);
-    schedule.push({ 
-      id: commercial.id, // Make sure this line is correct
-      time: commercialTime, 
-      displayTime: commercialTime.toLocaleTimeString(), 
-      title: commercial.title 
-    });
-  });
-
-  // Sort the schedule array by time
-  schedule.sort((a, b) => a.time - b.time);
-
-  return schedule;
-}
-
-// Fetch JSON file and populate the timeline
-fetch('./json/basic_m3tv_data.json')
-  .then(response => response.json())
-  .then(data => {
-    //console.log("Fetched Schedule Data:", data); // Debug: Log fetched data
-    globalNetworkData = data.network;
-    const schedule = extractSchedule(globalNetworkData);
-    populateTimeline(schedule);
-})
-  .catch(error => {
-    console.error('Error fetching JSON:', error);
-  });
-
-
-function displayMetadata(showId, networkData) {
-  let found = false;
-  ['shows', 'commercials'].forEach(category => {
-      networkData[category].forEach(item => {
-          if (item.id === showId) {
-              found = true;
-              const metadata = item.metadata;
-              let metadataHtml = `<h3>${item.title}</h3><dl>`;
-              for (const key in metadata) {
-                  metadataHtml += `<dt>${key}:</dt><dd>${metadata[key]}</dd>`;
-              }
-              metadataHtml += `</dl>`;
-              document.getElementById('metadata-container').innerHTML = metadataHtml;
-          }
-      });
-  });
-
-  if (!found) {
-      document.getElementById('metadata-container').innerHTML = '<p>Metadata not found.</p>';
-  }
-}
-
-});    
-
-function updateCurrentTimeAndShows(schedule) {
-    const currentTimeElement = document.getElementById('current-time');
-    const currentShowElement = document.getElementById('current-show');
-    const upcomingShowElement = document.getElementById('upcoming-show');
-
- 
-
-    // Get the current time
-    const now = new Date();
-    const currentTime = now.toLocaleTimeString();
-
-    // Find the current and upcoming shows
-    let currentShow = null;
-    let upcomingShow = null;
-    for (let i = 0; i < schedule.length; i++) {
-        const item = schedule[i];
-        const scheduleTime = new Date(item.schedule_time);
-
-        // Check if the current time is between the start and end times of the item
-        if (now >= scheduleTime && now < scheduleTime.getTime() + parseDuration(item.length)) {
-            currentShow = item;
-        } else if (now < scheduleTime) {
-            upcomingShow = item;
-            break; // Stop when we find the first upcoming show
-        }
-    }
-
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        const itemTime = item.getAttribute('data-time');
-        const itemTimeValue = new Date(itemTime).getTime(); // Timestamp of the item time
-
-        //console.log("Current Show:", currentShow);
-        //console.log("Upcoming Show:", upcomingShow);
-
-        if (currentShow && currentShow.schedule_time) {
-            const scheduleTimeValue = new Date(currentShow.schedule_time).getTime();
-    
-            if (itemTimeValue === scheduleTimeValue) {
-                item.classList.add('current-show');
+       
+        // Highlight the current show in the timeline
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            if (item.textContent.includes(currentShow.title)) {
+                item.classList.add('highlight'); // Add a highlight class or modify as needed
             } else {
-                item.classList.remove('current-show');
+                item.classList.remove('highlight'); // Remove the highlight class from other items
             }
-        }
-        
-        
-    });
+        });
     
-
-    // Update the display elements
-    currentTimeElement.textContent = `Time: ${currentTime}`;
-    if (currentShow) {
-        currentShowElement.textContent = `Playing: ${currentShow.title}`;
-        currentShowElement.style.color = 'red'; // Change the text color to red for the current show
-        var titleText = document.getElementById('titleText');
-        // Set the text content of the titleText element
-        if (titleText) {
-            titleText.textContent = "Now Playing: " + currentShow.title;
-        }
-
-    } else {
-        currentShowElement.textContent = 'No current show';
-    }
-    if (upcomingShow) {
-        upcomingShowElement.textContent = `Upcoming Show: ${upcomingShow.title}`;
-    } else {
-        upcomingShowElement.textContent = 'No upcoming show';
-    }
-
     
-}
+        currentTimeElement.textContent = `Time: ${now.toLocaleTimeString()}`;
+        currentShowElement.textContent = currentShow ? `Playing: ${currentShow.title}` : 'No current show';
+        upcomingShowElement.textContent = upcomingShow ? `Upcoming Show: ${upcomingShow.title}` : 'No upcoming show';
+        titleTextElement.textContent = currentShow.title;    }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // When the user clicks on the button, toggle between hiding and showing the dropdown content
-    function dropdownToggle() {
-      document.querySelector(".dropdown-content").classList.toggle("show");
-    }
-  
-    // Attach event listener to dropdown button
-    document.querySelector(".dropbtn").addEventListener("click", dropdownToggle);
-  
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-  });
-  
-  
-
-// Update the current time and shows every second
-setInterval(() => {
-    fetch('./json/basic_m3tv_data.json')
+    function fetchAndUpdateSchedule() {
+        fetch('./json/basic_m3tv_data.json')
         .then(response => response.json())
         .then(data => {
-            const schedule = extractSchedule(data.network);
+            const schedule = data.network.shows.concat(data.network.commercials);
+            populateTimeline(schedule);
             updateCurrentTimeAndShows(schedule);
         })
         .catch(error => console.error('Error fetching JSON:', error));
-}, 1000); // 1000 milliseconds (1 second)
+    }
 
+    function updateCurrentTimeAndShows(schedule) {
+        const currentTimeElement = document.getElementById('current-time');
+        const currentShowElement = document.getElementById('current-show');
+        const upcomingShowElement = document.getElementById('upcoming-show');
+
+        const now = new Date();
+        const nowTime = timeToMillis(now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds());
+
+        let currentShow = null;
+        let upcomingShow = null;
+
+        for (let i = 0; i < schedule.length; i++) {
+            const item = schedule[i];
+            const itemTime = timeToMillis(item.schedule_time);
+            const durationInMillis = parseDuration(item.length);
+            const endTime = itemTime + durationInMillis;
+
+            if (nowTime >= itemTime && nowTime < endTime) {
+                currentShow = item;
+                upcomingShow = schedule[i + 1] || null;
+                break;
+            } else if (nowTime < itemTime && !upcomingShow) {
+                upcomingShow = item;
+            }
+        }
+
+        currentTimeElement.textContent = `Time: ${now.toLocaleTimeString()}`;
+        currentShowElement.textContent = currentShow ? `Playing: ${currentShow.title}` : 'No current show';
+        upcomingShowElement.textContent = upcomingShow ? `Upcoming Show: ${upcomingShow.title}` : 'No upcoming show';
+    }
+
+    
+    setInterval(() => {
+        fetch('./json/basic_m3tv_data.json')
+            .then(response => response.json())
+            .then(data => {
+                const schedule = data.network.shows.concat(data.network.commercials);
+                populateTimeline(schedule);
+                updateCurrentTimeAndShows(schedule);
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+    }, 1000); // 1000 milliseconds (1 second)
+});    
 
     

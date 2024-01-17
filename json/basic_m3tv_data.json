@@ -4,7 +4,7 @@
             {
                 "id": "1",
                 "title": "GM: Wake And Bake",
-                "schedule_time": "2024-01-16T00:00:00Z",
+                "schedule_time": "00:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -31,7 +31,7 @@
             {
                 "id": "2",
                 "title": "Music Hour",
-                "schedule_time": "2024-01-16T01:00:00Z",
+                "schedule_time": "01:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_MusicHour",
                 "metadata": 
@@ -57,7 +57,7 @@
             {
                 "id": "3",
                 "title": "3d Shorts / Cartoons",
-                "schedule_time": "2024-01-16T02:00:00Z",
+                "schedule_time": "02:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Cartoons_1",
                 "metadata": 
@@ -83,7 +83,7 @@
             {
                 "id": "4",
                 "title": "Interop Shop",
-                "schedule_time": "2024-01-16T03:00:00Z",
+                "schedule_time": "03:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_InteropShop",
                 "metadata": 
@@ -109,7 +109,7 @@
             {
                 "id": "5",
                 "title": "DemoDay: New Projects",
-                "schedule_time": "2024-01-16T04:00:00Z",
+                "schedule_time": "04:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -135,7 +135,7 @@
             {
                 "id": "6",
                 "title": "Music Hour",
-                "schedule_time": "2024-01-16T05:00:00Z",
+                "schedule_time": "05:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_MusicHour",
                 "metadata": 
@@ -161,7 +161,7 @@
             {
                 "id": "7",
                 "title": "3d Shorts / Cartoons",
-                "schedule_time": "2024-01-16T06:00:00Z",
+                "schedule_time": "06:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Cartoons_1",
                 "metadata": 
@@ -187,7 +187,7 @@
             {
                 "id": "8",
                 "title": "Web3 Bounty Hunters",
-                "schedule_time": "2024-01-16T07:00:00Z",
+                "schedule_time": "07:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -213,7 +213,7 @@
             {
                 "id": "9",
                 "title": "WorldHopping: Hyperfy",
-                "schedule_time": "2024-01-16T08:00:00Z",
+                "schedule_time": "08:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Live_Event_1",
                 "metadata": 
@@ -239,7 +239,7 @@
             {
                 "id": "10",
                 "title": "Lab: Blender Modeling",
-                "schedule_time": "2024-01-16T09:00:00Z",
+                "schedule_time": "09:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -265,7 +265,7 @@
             {
                 "id": "11",
                 "title": "WorldHopping: CryptoVoxels",
-                "schedule_time": "2024-01-16T10:00:00Z",
+                "schedule_time": "10:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Live_Event_1",
                 "metadata": 
@@ -291,7 +291,7 @@
             {
                 "id": "12",
                 "title": "WorldHopping: VRChat",
-                "schedule_time": "2024-01-16T11:00:00Z",
+                "schedule_time": "11:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Live_Event_1",
                 "metadata": 
@@ -317,7 +317,7 @@
             {
                 "id": "13",
                 "title": "GM: Wake And Bake",
-                "schedule_time": "2024-01-16T12:00:00Z",
+                "schedule_time": "12:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -344,7 +344,7 @@
             {
                 "id": "14",
                 "title": "Music Hour",
-                "schedule_time": "2024-01-16T13:00:00Z",
+                "schedule_time": "13:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_MusicHour",
                 "metadata": 
@@ -370,7 +370,7 @@
             {
                 "id": "15",
                 "title": "3d Shorts / Cartoons",
-                "schedule_time": "2024-01-16T14:00:00Z",
+                "schedule_time": "14:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Cartoons_1",
                 "metadata": 
@@ -396,7 +396,7 @@
             {
                 "id": "16",
                 "title": "Interop Shop",
-                "schedule_time": "2024-01-16T15:00:00Z",
+                "schedule_time": "15:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_InteropShop",
                 "metadata": 
@@ -422,7 +422,7 @@
             {
                 "id": "17",
                 "title": "DemoDay: New Projects",
-                "schedule_time": "2024-01-16T16:00:00Z",
+                "schedule_time": "16:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -448,7 +448,7 @@
             {
                 "id": "18",
                 "title": "Music Hour",
-                "schedule_time": "2024-01-16T17:00:00Z",
+                "schedule_time": "17:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_MusicHour",
                 "metadata": 
@@ -474,7 +474,7 @@
             {
                 "id": "19",
                 "title": "3d Shorts / Cartoons",
-                "schedule_time": "2024-01-16T18:00:00Z",
+                "schedule_time": "18:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Cartoons_1",
                 "metadata": 
@@ -500,7 +500,7 @@
             {
                 "id": "20",
                 "title": "Web3 Bounty Hunters",
-                "schedule_time": "2024-01-16T19:00:00Z",
+                "schedule_time": "19:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -526,7 +526,7 @@
             {
                 "id": "21",
                 "title": "WorldHopping: Hyperfy",
-                "schedule_time": "2024-01-16T20:00:00Z",
+                "schedule_time": "20:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Live_Event_1",
                 "metadata": 
@@ -552,7 +552,7 @@
             {
                 "id": "22",
                 "title": "Lab: Blender Modeling",
-                "schedule_time": "2024-01-16T21:00:00Z",
+                "schedule_time": "21:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Show_1",
                 "metadata": 
@@ -578,7 +578,7 @@
             {
                 "id": "23",
                 "title": "WorldHopping: CryptoVoxels",
-                "schedule_time": "2024-01-16T22:00:00Z",
+                "schedule_time": "22:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Live_Event_1",
                 "metadata": 
@@ -604,7 +604,7 @@
             {
                 "id": "24",
                 "title": "WorldHopping: VRChat",
-                "schedule_time": "2024-01-16T23:00:00Z",
+                "schedule_time": "23:00:00",
                 "length": "1h",
                 "OBSScene": "Scene_Live_Event_1",
                 "metadata": 
@@ -632,7 +632,7 @@
             {
                 "id": "1c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T00:59:30Z",
+                "schedule_time": "00:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -648,7 +648,7 @@
             {
                 "id": "2c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T01:59:30Z",
+                "schedule_time": "01:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -664,7 +664,7 @@
             {
                 "id": "3c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T02:59:30Z",
+                "schedule_time": "02:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -680,7 +680,7 @@
             {
                 "id": "4c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T03:59:30Z",
+                "schedule_time": "03:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -696,7 +696,7 @@
             {
                 "id": "5c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T04:59:30Z",
+                "schedule_time": "04:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -712,7 +712,7 @@
             {
                 "id": "6c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T05:59:30Z",
+                "schedule_time": "05:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -728,7 +728,7 @@
             {
                 "id": "7c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T06:59:30Z",
+                "schedule_time": "06:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -744,7 +744,7 @@
             {
                 "id": "8c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T07:59:30Z",
+                "schedule_time": "07:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -760,7 +760,7 @@
             {
                 "id": "9c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T08:59:30Z",
+                "schedule_time": "08:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -776,7 +776,7 @@
             {
                 "id": "10c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T09:59:30Z",
+                "schedule_time": "09:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -792,7 +792,7 @@
             {
                 "id": "11c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T10:59:30Z",
+                "schedule_time": "10:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -808,7 +808,7 @@
             {
                 "id": "12c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T11:59:30Z",
+                "schedule_time": "11:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -824,7 +824,7 @@
             {
                 "id": "13c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T12:59:30Z",
+                "schedule_time": "12:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -840,7 +840,7 @@
             {
                 "id": "14c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T13:59:30Z",
+                "schedule_time": "13:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -856,7 +856,7 @@
             {
                 "id": "15c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T14:59:30Z",
+                "schedule_time": "14:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -872,7 +872,7 @@
             {
                 "id": "16c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T15:59:30Z",
+                "schedule_time": "15:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -888,7 +888,7 @@
             {
                 "id": "17c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T16:59:30Z",
+                "schedule_time": "16:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -904,7 +904,7 @@
             {
                 "id": "18c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T17:59:30Z",
+                "schedule_time": "17:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -920,7 +920,7 @@
             {
                 "id": "19c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T18:59:30Z",
+                "schedule_time": "18:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -936,7 +936,7 @@
             {
                 "id": "20c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T19:59:30Z",
+                "schedule_time": "19:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -952,7 +952,7 @@
             {
                 "id": "21c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T20:59:30Z",
+                "schedule_time": "20:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -968,7 +968,7 @@
             {
                 "id": "22c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T21:59:30Z",
+                "schedule_time": "21:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -984,7 +984,7 @@
             {
                 "id": "23c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T22:59:30Z",
+                "schedule_time": "22:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -1000,7 +1000,7 @@
             {
                 "id": "24c",
                 "title": "Commercials",
-                "schedule_time": "2024-01-16T23:59:30Z",
+                "schedule_time": "23:59:30",
                 "length": "30s",
                 "OBSScene": "Scene_Commercial_1",
                 "metadata": 
@@ -1018,7 +1018,7 @@
             {
                 "id": "1i",
                 "title": "Interupt",
-                "schedule_time": "2024-01-16T13:30:00Z",
+                "schedule_time": "13:30:00",
                 "OBSScene": "Scene_Urgent_News",
                 "metadata": 
                 {
@@ -1042,7 +1042,7 @@
             {
                 "id": "2l",
                 "title": "LiveStream",
-                "schedule_time": "2024-01-16T13:30:00Z",
+                "schedule_time": "13:30:00",
                 "OBSScene": "Scene_LiveStream",
                 "metadata": 
                 {

@@ -63,5 +63,10 @@
     color: #fff; /* Change text color for better visibility */
   }
 
+  .highlight{
+    color: aqua;
+    background-color: #007bff;
+  }
+
 
   

@@ -3,6 +3,7 @@
 const now = new Date();
 console.log("Local Time:", now.toString());
 console.log("UTC Time:", now.toISOString());
+let lastLoadedItemId = null; // Track the last loaded item
 
 function parseDuration(durationStr) {
     const duration = {
@@ -34,53 +35,59 @@ function parseDuration(durationStr) {
 
 function findCurrentItem(schedule) {
     const now = new Date();
-    // Convert current time to milliseconds since start of the day
-    const currentTimeInMillis = (now.getUTCHours() * 3600000) + (now.getUTCMinutes() * 60000) + (now.getUTCSeconds() * 1000);
+    const nowTimeInMillis = now.getHours() * 3600000 + now.getMinutes() * 60000 + now.getSeconds() * 1000;
 
     return schedule.find(item => {
-        const scheduleTime = new Date(item.schedule_time);
-        // Convert schedule time to milliseconds since start of the day
-        const scheduleTimeInMillis = (scheduleTime.getUTCHours() * 3600000) + (scheduleTime.getUTCMinutes() * 60000) + (scheduleTime.getUTCSeconds() * 1000);
+        const [hours, minutes, seconds] = item.schedule_time.split(':').map(Number);
+        const itemTimeInMillis = hours * 3600000 + minutes * 60000 + seconds * 1000;
         const durationInMillis = parseDuration(item.length);
-        const endTimeInMillis = scheduleTimeInMillis + durationInMillis;
+        const endTimeInMillis = itemTimeInMillis + durationInMillis;
 
-        return currentTimeInMillis >= scheduleTimeInMillis && currentTimeInMillis < endTimeInMillis;
+        // Adjust for items that may span into the next day
+        if (itemTimeInMillis > endTimeInMillis) {
+            if (nowTimeInMillis >= itemTimeInMillis || nowTimeInMillis < endTimeInMillis) {
+                return true;
+            }
+        } else {
+            if (nowTimeInMillis >= itemTimeInMillis && nowTimeInMillis < endTimeInMillis) {
+                return true;
+            }
+        }
     });
 }
 
-
-
 function loadCurrentVideo(schedule) {
     const currentItem = findCurrentItem(schedule);
+
+    if (!currentItem || !currentItem.metadata || !currentItem.metadata.file) {
+        console.log("No current show to load.");
+        return;
+    }
+
     console.log("Current item to load:", currentItem);
+    const videoPlayer = document.querySelector('video');
+    
+    // Set video source and load
+    videoPlayer.src = currentItem.metadata.file;
+    videoPlayer.muted = true;
+    videoPlayer.load();
 
-    if (currentItem && currentItem.metadata && currentItem.metadata.file) {
-        const videoPlayer = document.querySelector('video');
+    // Calculate and set the current time of the video
+    const now = new Date();
+    const [hours, minutes, seconds] = currentItem.schedule_time.split(':').map(Number);
+    const scheduleTimeInMillis = hours * 3600000 + minutes * 60000 + seconds * 1000;
+    const nowTimeInMillis = now.getHours() * 3600000 + now.getMinutes() * 60000 + now.getSeconds() * 1000;
+    let offsetInSeconds = (nowTimeInMillis - scheduleTimeInMillis) / 1000;
 
-        // Set muted attribute
-        videoPlayer.muted = true;
+    if (offsetInSeconds < 0 || offsetInSeconds > parseDuration(currentItem.length) / 1000) {
+        offsetInSeconds = 0; // If current time is before the schedule time or past the duration
+    }
 
-        // Set the video source and load it
-        videoPlayer.src = currentItem.metadata.file;
-        videoPlayer.load();
-
-        const now = new Date();
-        const scheduleTime = new Date(currentItem.schedule_time);
-        const offsetInSeconds = (now - scheduleTime) / 1000;
-
-        // Set the currentTime of the video
-        if (offsetInSeconds > 0) {
-            videoPlayer.currentTime = offsetInSeconds;
-        } else {
-            videoPlayer.currentTime = 0;
-        }
-
-        console.log("Loading video. Current time:", now.toISOString(), "Offset in seconds:", offsetInSeconds);
-
-
-        // When the video ends, load the next video
+    videoPlayer.currentTime = offsetInSeconds;
+        /// When the video ends, load the next video
         videoPlayer.addEventListener('ended', function() {
             console.log("Video ended. Loading next item.");
+            lastLoadedItemId = null; // Reset last loaded item
             updateSchedule();
         });
         
@@ -95,7 +102,9 @@ function loadCurrentVideo(schedule) {
             // An error occurred during playback
             console.error("Error playing video:", error);
         });
-    }
+
+        lastLoadedItemId = currentItem.id; // Update last loaded item
+    
 }
 
 
@@ -106,7 +115,7 @@ function updateSchedule() {
         .then(data => {
             //console.log("Fetched data:", data);
             const schedule = extractSchedule(data.network);
-            //loadCurrentVideo(schedule);
+            loadCurrentVideo(schedule);
         })
         .catch(error => {
             console.error('Error fetching JSON:', error);
