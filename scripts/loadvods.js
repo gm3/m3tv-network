@@ -1,4 +1,3 @@
-
 // Event listener for the DOMContentLoaded event
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
@@ -23,8 +22,8 @@ function loadVodContent() {
                 }
 
                 networkData[category].forEach((item, index) => {
-                    const readableScheduleTime = new Date(item.schedule_time).toLocaleString('en-US', { /*...*/ });
-                    
+                    const readableScheduleTime = item.schedule_time.substring(0, 8); // Extract only the time portion (HH:mm:ss)
+
                     const vodItem = document.createElement('div');
                     vodItem.classList.add('vod-item');
 
@@ -47,12 +46,12 @@ function loadVodContent() {
                     // Add click event listeners for loading videos
                     document.getElementById(titleId).addEventListener('click', function(event) {
                         event.preventDefault();
-                        loadVideoIntoPlayer(this.href);
+                        loadVideoIntoPlayer(this.href, item); // Pass 'item' as a parameter
                     });
 
                     document.getElementById(linkId).addEventListener('click', function(event) {
                         event.preventDefault();
-                        loadVideoIntoPlayer(this.href);
+                        loadVideoIntoPlayer(this.href, item); // Pass 'item' as a parameter
                     });
                 });
             });
@@ -62,21 +61,11 @@ function loadVodContent() {
         });
 }
 
-function loadVideoIntoPlayer(url) {
+// Modify the 'loadVideoIntoPlayer' function to accept the 'item' parameter
+function loadVideoIntoPlayer(url, item) {
+    const titleTextElement = document.getElementById('titleText');
+    titleTextElement.textContent = item ? `Playing: ${item.title}` : 'No current show';
     const player = document.querySelector('video');
     player.src = url;
     player.play();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

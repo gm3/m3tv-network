@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function() {
     var broadcastwindow = document.getElementById('broadcast-window-wrapper');
     broadcastwindow.innerHTML = `
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div> 
        
     </div>`;
-
- 
+    //fetch();
+   // titleTextElement.textContent = currentShow.title; 
 
 });

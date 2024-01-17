@@ -1,37 +1,10 @@
 // videoScheduler.js
+import { fetchScheduleData, parseDuration } from './dataService.js'; // Import fetchScheduleData and extractSchedule from dataService.js
 
 const now = new Date();
 console.log("Local Time:", now.toString());
 console.log("UTC Time:", now.toISOString());
 let lastLoadedItemId = null; // Track the last loaded item
-
-function parseDuration(durationStr) {
-    const duration = {
-        h: 3600000,  // 1 hour in milliseconds
-        m: 60000,    // 1 minute in milliseconds
-        s: 1000      // 1 second in milliseconds
-    };
-
-    const regex = /(\d+)(h|m|s)/g;
-    let result = 0;
-    let match;
-
-    //console.log("Parsing duration for:", durationStr);
-
-    // Iterate over all the matches for hours, minutes, and seconds
-    while ((match = regex.exec(durationStr)) !== null) {
-        const value = parseInt(match[1], 10);
-        const unit = match[2];
-        const millis = value * (duration[unit] || 0);
-        result += millis;
-
-        //console.log(`Found match: ${match[0]}, Value: ${value}, Unit: ${unit}, Milliseconds: ${millis}`);
-    }
-
-    //console.log("Total duration in milliseconds:", result);
-    return result;
-}
-
 
 function findCurrentItem(schedule) {
     const now = new Date();
@@ -110,38 +83,18 @@ function loadCurrentVideo(schedule) {
 
 // Function to fetch and update the schedule, and load the current video
 function updateSchedule() {
-    fetch('./json/basic_m3tv_data.json')
-        .then(response => response.json())
-        .then(data => {
-            //console.log("Fetched data:", data);
-            const schedule = extractSchedule(data.network);
+    fetchScheduleData() // Use fetchScheduleData from dataService.js
+        .then(schedule => {
             loadCurrentVideo(schedule);
         })
         .catch(error => {
-            console.error('Error fetching JSON:', error);
+            console.error('Error fetching and updating schedule:', error);
         });
 }
-
-
-function extractSchedule(networkData) {
-    let schedule = [];
-    ['shows', 'commercials', 'others'].forEach(category => {
-        networkData[category].forEach(item => {
-            const extractedItem = {
-                ...item,
-                schedule_time: item.schedule_time,
-                end_time: new Date(new Date(item.schedule_time).getTime() + parseDuration(item.length))
-            };
-            //console.log("Extracted item:", extractedItem);
-            schedule.push(extractedItem);
-        });
-    });
-    schedule.sort((a, b) => new Date(a.schedule_time) - new Date(b.schedule_time));
-    //console.log("Complete extracted schedule:", schedule);
-    return schedule;
-}
-
-
 
 // Initial load
 updateSchedule();
+
+
+
+
