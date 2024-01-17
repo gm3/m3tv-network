@@ -1,3 +1,4 @@
+import { initializeContainer } from './infopanel.js'; // adjust the path as necessary
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div> 
        
     </div>`;
-    //fetch();
-   // titleTextElement.textContent = currentShow.title; 
+    initializeContainer();
+
 
 });

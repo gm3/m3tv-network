@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var currentTimeDisplay = document.getElementById('currentTime');
     var progressBarContainer = document.getElementById('progressBarContainer');
     var progressBar = document.getElementById('progressBar');
-   
     var muteToggleButton = document.getElementById('muteToggle');
     var volumeSlider = document.getElementById('volumeSlider');
     var fullScreenToggleButton = document.getElementById('fullScreenToggle');
