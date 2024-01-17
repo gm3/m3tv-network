@@ -106,7 +106,7 @@ function updateSchedule() {
         .then(data => {
             //console.log("Fetched data:", data);
             const schedule = extractSchedule(data.network);
-            loadCurrentVideo(schedule);
+            //loadCurrentVideo(schedule);
         })
         .catch(error => {
             console.error('Error fetching JSON:', error);
