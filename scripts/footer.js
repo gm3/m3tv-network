@@ -1,4 +1,4 @@
-    document.addEventListener("DOMContentLoaded", function() {
+    export function initializeFooter() {
         var footer = document.getElementById('site-footer');
     
         footer.innerHTML = `
@@ -15,6 +15,4 @@
         </p>
         
         `;
-       
-    });
-    
+      }

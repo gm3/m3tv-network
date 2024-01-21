@@ -1,6 +1,5 @@
 import { initializeContainer } from './infopanel.js'; // adjust the path as necessary
 
-
 document.addEventListener("DOMContentLoaded", function() {
     var broadcastwindow = document.getElementById('broadcast-window-wrapper');
     broadcastwindow.innerHTML = `
