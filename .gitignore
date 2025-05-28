@@ -397,3 +397,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 obsassets/titles/_1hour/1hour.mp4
+prepros.config

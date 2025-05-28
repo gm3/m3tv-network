@@ -1,7 +1,11 @@
 .video-container {
     position: relative;
-    max-width: 100%; /* Adjust as necessary */
+    width: 100%; /* Use width: 100% instead of max-width for full width */
     margin: auto; /* Center the video if the container has extra space */
+    display: flex; /* Use flex to help child iframe fill space */
+    flex-direction: column; /* Align iframe vertically */
+    flex-grow: 1; /* Allow video container to take up most space */
+    min-height: 0; /* Crucial for flex children sizing */
 }
 
 .video-controls {
@@ -48,7 +52,7 @@
 
 #myVideo {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    /* height: auto; This is not needed for the iframe, and might conflict */
 }
 
 
@@ -238,4 +242,13 @@
     #currentTime {
        /* display: none; /* Hide current time on very small screens if needed */
     }
+}
+
+/* Style for the VOD list (thumbnails area) */
+#vod-list {
+    width: 100%;
+    height: 200px; /* Or your desired fixed height for the thumbnail area */
+    overflow-y: auto; /* Allow vertical scrolling for thumbnails */
+    flex-shrink: 0; /* Prevent this container from shrinking */
+    background-color: #111; /* Optional: for visibility */
 }

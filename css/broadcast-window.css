@@ -9,12 +9,14 @@
 }
 
 .broadcast-window-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto; /* Enable scrolling for the broadcast window */
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0; 
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    overflow: hidden; /* Prevent its own scrollbars, children can scroll if needed */
     scrollbar-width: none; /* For Firefox */
     -ms-overflow-style: none; /* For Internet Explorer 10+ */
 }

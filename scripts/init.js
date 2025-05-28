@@ -1,6 +1,6 @@
-import { initializeFooter } from './footer.js';
+// import { initializeFooter } from './footer.js';
 
 document.addEventListener("DOMContentLoaded", function() {
-    initializeFooter();
-    
+    // initializeFooter(); // Footer is removed
+    console.log("Main initialization complete. Footer loading skipped.");
 });
